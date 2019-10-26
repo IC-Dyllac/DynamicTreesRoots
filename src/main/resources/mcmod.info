@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dynamictreesroots",
+  "name": "Dynamic Trees Roots",
+  "description": "Adds the Roots tree to dynamic trees.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Dumdidldum", "Kat (5B)"],
+  "credits": "Kat (5B) for the awesome seed texture; The Forge and FML people for Forge; The Roots Team for Roots; FerreusVeritas and mangoose3039 for Dynamic Trees and Rustic which i used as main Guidance.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "dynamictrees:sapling",
+		"textures": {
+			"log": "roots:blocks/wildwood_log",
+			"leaves": "roots:blocks/wildwood_leaves"
+		}
+	},
+	"variants": {
+		"normal": [{
+
+		}]
+	}
+}
