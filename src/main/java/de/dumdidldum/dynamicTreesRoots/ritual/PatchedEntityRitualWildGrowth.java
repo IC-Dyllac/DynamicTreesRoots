@@ -7,6 +7,7 @@ import epicsquid.roots.init.ModBlocks;
 import epicsquid.roots.ritual.RitualRegistry;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -64,8 +65,7 @@ public class PatchedEntityRitualWildGrowth extends EntityRitualBase {
 					double x = pos.getX() + 0.5;
 					double y = pos.getY() + 0.5;
 					double z = pos.getZ() + 0.5;
-					EntityItem itemEntity = new EntityItem(world, x, y, z, species.getSeedStack(1));
-					//TODO set ground to dirt?
+					EntityItem itemEntity = new EntityItem(world, x, y, z, species.getSeedStack(random.nextInt(3) + 1));
 					world.spawnEntity(itemEntity);
 				}
 			}

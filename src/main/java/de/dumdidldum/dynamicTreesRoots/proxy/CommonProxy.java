@@ -25,6 +25,5 @@ public class CommonProxy {
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {
-		//DynamicTreesRoots.Logger.info("Attempting wild wood growth ritual override");
 	}
 }

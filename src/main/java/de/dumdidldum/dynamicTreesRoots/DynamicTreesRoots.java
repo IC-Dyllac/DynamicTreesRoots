@@ -26,7 +26,7 @@ public class DynamicTreesRoots {
     @Instance
     public static DynamicTreesRoots instance;
 
-    @SidedProxy(clientSide = "de.dumdidldum.dynamicTreesRoots.proxy.CommonProxy", serverSide = "de.dumdidldum.dynamicTreesRoots.proxy.CommonProxy")
+    @SidedProxy(clientSide = "de.dumdidldum.dynamicTreesRoots.proxy.ClientProxy", serverSide = "de.dumdidldum.dynamicTreesRoots.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @EventHandler

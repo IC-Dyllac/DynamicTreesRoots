@@ -18,10 +18,12 @@ import com.ferreusveritas.dynamictrees.items.DendroPotion.DendroPotionType;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import com.ferreusveritas.dynamictrees.trees.TreeFamily;
 
+import de.dumdidldum.dynamicTreesRoots.proxy.ClientProxy;
 import de.dumdidldum.dynamicTreesRoots.ritual.PatchedEntityRitualWildGrowth;
 import de.dumdidldum.dynamicTreesRoots.trees.TreeWildwood;
 import de.dumdidldum.dynamicTreesRoots.util.CustomSaplingReplacer;
 import epicsquid.mysticallib.LibRegistry;
+import epicsquid.mysticallib.entity.RenderNull;
 import epicsquid.mysticallib.event.RegisterContentEvent;
 import epicsquid.roots.init.ModBlocks;
 import net.minecraft.block.Block;
@@ -58,6 +60,10 @@ public class Content {
 	public static void init(@Nonnull RegisterContentEvent event) {		  
 		LibRegistry.setActiveMod(DynamicTreesRoots.MODID, DynamicTreesRoots.CONTAINER);
 	    LibRegistry.registerEntity(PatchedEntityRitualWildGrowth.class);
+	    
+	    if(DynamicTreesRoots.proxy instanceof ClientProxy) {
+	        LibRegistry.registerEntityRenderer(PatchedEntityRitualWildGrowth.class, new RenderNull.Factory());
+	    }
 	}
 	
 	@SubscribeEvent
@@ -105,8 +111,8 @@ public class Content {
         ModelHelper.regModel(wildwoodTree);
             
         ModelHelper.regModel(TreeRegistry.findSpecies(new ResourceLocation(DynamicTreesRoots.MODID, "wildwood")).getSeed()); 
-        LeavesPaging.getLeavesMapForModId(DynamicTreesRoots.MODID).forEach((key,leaves) -> ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build()));
-   }
+        LeavesPaging.getLeavesMapForModId(DynamicTreesRoots.MODID).forEach((key,leaves) -> ModelLoader.setCustomStateMapper(leaves, new StateMap.Builder().ignore(BlockLeaves.DECAYABLE).build()));        
+    }
 	
 	public static Item getWildwoodSeed() {
 		return wildwoodTree.getCommonSpecies().getSeed();
