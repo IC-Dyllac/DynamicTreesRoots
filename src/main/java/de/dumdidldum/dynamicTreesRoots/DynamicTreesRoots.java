@@ -20,7 +20,7 @@ public class DynamicTreesRoots {
 	public static final String MODID = "dynamictreesroots";
 	public static final String NAME = "Dynamic Trees Roots";
 	public static final String VERSION = "0.2.0";
-	public static final String DEPENDENCIES = "required-after:dynamictrees@[1.12.2-0.7.7e,);required-after:roots";
+	public static final String DEPENDENCIES = "required-after:dynamictrees@[1.12.2-0.9.6,);required-after:roots";
 	public static ModContainer CONTAINER = null;
 	
     @Instance
