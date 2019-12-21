@@ -2,14 +2,11 @@ package de.dumdidldum.dynamicTreesRoots;
 
 import java.util.ArrayList;
 
-import javax.annotation.Nonnull;
-
 import com.ferreusveritas.dynamictrees.ModConfigs;
 import com.ferreusveritas.dynamictrees.ModItems;
 import com.ferreusveritas.dynamictrees.ModRecipes;
 import com.ferreusveritas.dynamictrees.api.TreeRegistry;
 import com.ferreusveritas.dynamictrees.api.WorldGenRegistry;
-import com.ferreusveritas.dynamictrees.api.WorldGenRegistry.BiomeDataBasePopulatorRegistryEvent;
 import com.ferreusveritas.dynamictrees.api.client.ModelHelper;
 import com.ferreusveritas.dynamictrees.api.treedata.ILeavesProperties;
 import com.ferreusveritas.dynamictrees.blocks.LeavesPaging;
@@ -24,7 +21,6 @@ import de.dumdidldum.dynamicTreesRoots.trees.TreeWildwood;
 import de.dumdidldum.dynamicTreesRoots.util.CustomSaplingReplacer;
 import epicsquid.mysticallib.LibRegistry;
 import epicsquid.mysticallib.entity.RenderNull;
-import epicsquid.mysticallib.event.RegisterContentEvent;
 import epicsquid.roots.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -50,21 +46,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class Content {
 	public static ILeavesProperties wildwoodLeavesProperties;
 	public static TreeFamily wildwoodTree;
-
-	@SubscribeEvent
-	public static void registerDataBasePopulators(final BiomeDataBasePopulatorRegistryEvent event) {
-		// not needed
-	}
-	
-	@SubscribeEvent
-	public static void init(@Nonnull RegisterContentEvent event) {		  
-		LibRegistry.setActiveMod(DynamicTreesRoots.MODID, DynamicTreesRoots.CONTAINER);
-	    LibRegistry.registerEntity(PatchedEntityRitualWildGrowth.class);
-	    
-	    if(DynamicTreesRoots.proxy instanceof ClientProxy) {
-	        LibRegistry.registerEntityRenderer(PatchedEntityRitualWildGrowth.class, new RenderNull.Factory());
-	    }
-	}
 	
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
@@ -95,11 +76,16 @@ public class Content {
 		registry.registerAll(treeItems.toArray(new Item[treeItems.size()]));
 	}
 	
-	public static void preInit() {		
-		
+	public static void preInit() {
 		if (ModConfigs.replaceVanillaSapling) {
 			MinecraftForge.EVENT_BUS.register(new CustomSaplingReplacer());
 		}
+		LibRegistry.setActiveMod(DynamicTreesRoots.MODID, DynamicTreesRoots.CONTAINER);
+	    LibRegistry.registerEntity(PatchedEntityRitualWildGrowth.class);
+	    
+	    if(DynamicTreesRoots.proxy instanceof ClientProxy) {
+	        LibRegistry.registerEntityRenderer(PatchedEntityRitualWildGrowth.class, new RenderNull.Factory());
+	    }
 	}
 	
     @SideOnly(Side.CLIENT)

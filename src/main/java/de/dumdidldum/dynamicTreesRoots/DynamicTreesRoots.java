@@ -1,9 +1,5 @@
 package de.dumdidldum.dynamicTreesRoots;
 
-import org.apache.logging.log4j.Logger;
-
-import com.ferreusveritas.dynamictrees.api.WorldGenRegistry;
-
 import de.dumdidldum.dynamicTreesRoots.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -19,8 +15,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class DynamicTreesRoots {
 	public static final String MODID = "dynamictreesroots";
 	public static final String NAME = "Dynamic Trees Roots";
-	public static final String VERSION = "0.2.0";
-	public static final String DEPENDENCIES = "required-after:dynamictrees@[1.12.2-0.9.6,);required-after:roots";
+	public static final String VERSION = "0.2.1";
+	public static final String DEPENDENCIES = "required-after:dynamictrees@[1.12.2-0.9.6,);required-after:roots;required-before:mysticallib";
 	public static ModContainer CONTAINER = null;
 	
     @Instance
