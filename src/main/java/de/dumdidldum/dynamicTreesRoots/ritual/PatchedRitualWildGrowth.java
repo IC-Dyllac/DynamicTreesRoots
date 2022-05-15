@@ -2,11 +2,11 @@ package de.dumdidldum.dynamicTreesRoots.ritual;
 
 import de.dumdidldum.dynamicTreesRoots.DynamicTreesRoots;
 import epicsquid.roots.entity.ritual.EntityRitualBase;
-import epicsquid.roots.ritual.RitualWildGrowth;
+import epicsquid.roots.ritual.RitualWildrootGrowth;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class PatchedRitualWildGrowth extends RitualWildGrowth {
+public class PatchedRitualWildGrowth extends RitualWildrootGrowth {
 
 	public PatchedRitualWildGrowth(String name, int duration, boolean disabled) {
 		super(name, duration, disabled);
